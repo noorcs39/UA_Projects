@@ -1,3 +1,5 @@
+#Nooruddin
+
 import re
 import requests
 import time
@@ -32,7 +34,7 @@ def approximate_counter(words, probability):
         for k in range(1, int(math.log(num_bits, 3)) + 1):
             index = hash_value % num_bits
             bloom_filter[index] = 1
-            hash_value = hash(hash_value)  # Apply a secondary hash function
+            hash_value = hash(hash_value) 
 
             if hash_value % (3 ** k) != 0:
                 break

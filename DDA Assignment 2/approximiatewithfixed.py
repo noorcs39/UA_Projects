@@ -1,8 +1,10 @@
+#Nooruddin
+
 import re
 import requests
 import time
 from collections import Counter
-from bitarray import bitarray  # Install using: pip install bitarray
+from bitarray import bitarray  
 from prettytable import PrettyTable
 
 def download_text_file(url):
@@ -22,8 +24,8 @@ def count_words(text, stop_words=None):
     return word_counter
 
 def approximate_counter(words, probability):
-    # Implement Bloom Filter with fixed probability
-    num_bits = len(words) * 2  # Adjust the size based on your dataset
+
+    num_bits = len(words) * 2  
     bloom_filter = bitarray(num_bits)
     bloom_filter.setall(0)
 
@@ -71,10 +73,8 @@ def run_tests(text_content, num_tests, stop_words=None, display_top_n=10):
     return word_counts
 
 def compare_counts(exact_counts, approximate_counts):
-    # Extract the 20 most frequent words from exact counts
     exact_top_words = [word for count in exact_counts for word, _ in count.most_common(20)]
 
-    # Extract the 20 most frequent words from approximate counts
     approximate_top_words = set()
 
     for count in approximate_counts:
@@ -86,12 +86,10 @@ def compare_counts(exact_counts, approximate_counts):
             if count[index1] == 1 and count[index2] == 1:
                 approximate_top_words.add(word)
 
-    # Compare the 20 most frequent words
     common_words = set(exact_top_words).intersection(approximate_top_words)
 
     print(f"\nCommon words in the 20 most frequent: {common_words}")
 
-    # Calculate absolute and relative errors for the common words
     absolute_errors = []
     relative_errors = []
 
