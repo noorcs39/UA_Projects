@@ -1,3 +1,5 @@
+#Nooruddin
+
 import random
 
 def n(v, a):
