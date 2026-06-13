@@ -1,4 +1,8 @@
-# Byte-compiled / optimized / DLL files
+# Project outputs
+outputs/*
+!outputs/.gitkeep
+*.egg-info/
+
 __pycache__/
 *.py[cod]
 *$py.class
